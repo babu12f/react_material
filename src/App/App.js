@@ -3,8 +3,7 @@ import './App.css'
 import SideMenu from '../components/SideMenu'
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core'
 import Header from '../components/Header'
-import PageHeader from '../components/PageHeader'
-import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline'
+import Employees from '../pages/Employees/Employees'
 
 
 const theme = createMuiTheme({
@@ -51,10 +50,7 @@ function App() {
 			<SideMenu />
 			<div className={classes.appMain}>
 				<Header />
-				<PageHeader
-				title="Page Header"
-				subTitle="Page Description"
-				icon={<PeopleOutlineIcon fontSize="large" />} />
+				<Employees />
 			</div>
 			<CssBaseline />
 		</ThemeProvider>

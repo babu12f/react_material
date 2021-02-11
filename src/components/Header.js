@@ -51,7 +51,7 @@ function Header() {
                             </Badge>
                         </IconButton>
                         <IconButton>
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={3} color="primary">
                                 <ChatBubbleOutlineIcon fontSize="small" />
                             </Badge>
                         </IconButton>
