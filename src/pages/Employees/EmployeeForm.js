@@ -46,7 +46,7 @@ export default function EmployeeForm() {
             ...temp 
         })
 
-        console.log(temp, fieldValues.gender)
+        //console.log(temp, fieldValues.gender)
 
         if (fieldValues == values)
             return Object.values(temp).every(x => x == "")
