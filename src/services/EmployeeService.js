@@ -1,3 +1,5 @@
+import { DateTimePicker } from "@material-ui/pickers"
+
 const KEYS = {
     employees: 'employees',
     employeeId: 'employeeId'
@@ -10,12 +12,19 @@ export const getDepartmentCollection = () =>([
     { id: '4', title: 'HR' }
 ])
 
-export function insertEmpoyee(data) {
+export function insertEmployee(data) {
     let employees = getAllEmployees()
     data['id'] = generateEmployeeId()
     employees.push(data)
 
     localStorage.setItem(KEYS.employees, JSON.stringify(employees))
+}
+
+export function updateEmployee(data) {
+    let employees = getAllEmployees();
+    let recordIndex = employees.findIndex(x => x.id == data.id);
+    employees[recordIndex] = { ...data }
+    localStorage.setItem(KEYS.employees, JSON.stringify(employees));
 }
 
 export function generateEmployeeId() {
@@ -39,6 +48,7 @@ export function getAllEmployees() {
     let departments = getDepartmentCollection();
     return employees.map(x => ({
         ...x,
+        hiredDate: new Date(x.hiredDate),
         department: departments[x.departmentId - 1].title
     }))
 }
