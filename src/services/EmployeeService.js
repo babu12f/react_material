@@ -38,6 +38,12 @@ export function generateEmployeeId() {
     return id
 }
 
+export function deleteEmployee(id) {
+    let employees = getAllEmployees();
+    employees = employees.filter(x => x.id != id)
+    localStorage.setItem(KEYS.employees, JSON.stringify(employees));
+}
+
 export function getAllEmployees() {
     if (localStorage.getItem(KEYS.employees) == null) {
         localStorage.setItem(KEYS.employees, JSON.stringify([]))
